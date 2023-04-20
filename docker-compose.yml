@@ -1,0 +1,7 @@
+services:
+  gateway:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./configs/nginx/conf.d/:/etc/nginx/conf.d/
