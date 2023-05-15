@@ -5,3 +5,17 @@ services:
       - 80:80
     volumes:
       - ./configs/nginx/conf.d/:/etc/nginx/conf.d/
+  admiralis-db:
+    image: mongo
+    restart: unless-stopped
+    container_name: admiralis-db-dev
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+      MONGO_INITDB_DATABASE: rootdb
+    volumes:
+      - admiralis-db:/data
+volumes:
+  admiralis-db:
