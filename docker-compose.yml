@@ -2,9 +2,10 @@ services:
   gateway:
     image: nginx
     ports:
-      - 80:80
+      - 443:443
     volumes:
       - ./configs/nginx/conf.d/:/etc/nginx/conf.d/
+      - './configs/nginx/ssl/:/etc/nginx/ssl/'
   admiralis-db:
     image: mongo
     restart: unless-stopped
